@@ -1,0 +1,249 @@
+/* Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Estilo do body */
+body {
+    background: linear-gradient(#0a1930, #1354A5, #041832);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 10px;
+    position: relative;
+}
+
+body::before {
+    background-image: url("img/code.png");
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0.1;
+    z-index: 0;
+}
+
+/* Container principal */
+.container {
+    width: 90%;
+    max-width: 900px;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 20px;
+    border: 2px solid #1875E8;
+    box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Texto e título */
+h1 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 3rem;
+    text-align: center;
+    color: #FFD700;
+    margin-bottom: 30px;
+}
+
+.texto__paragrafo {
+    font-size: 1.2rem;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Botões de opções */
+.opcoes {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+}
+
+.opcao {
+    background: linear-gradient(135deg, #1875E8, #1C92D2);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 15px 20px;
+    text-align: center;
+    transition: background 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+    z-index: 2;
+    pointer-events: auto; /* Garante que os eventos de clique sejam capturados */
+}
+
+.opcao:hover {
+    background: linear-gradient(135deg, #1C92D2, #1875E8);
+    transform: scale(1.05);
+}
+
+.opcao.selecionado {
+    background: #00C851; /* Verde para resposta correta */
+    font-size: 1.7rem !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    border: 3px solid #000 !important;
+}
+
+.opcao.errada {
+    background: #FF4444; /* Vermelho para resposta errada */
+    font-size: 1.7rem !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    border: 3px solid #000 !important;
+}
+
+/* Feedback do resultado */
+#resultado {
+    margin-top: 80px !important;
+    animation: pulse 1s infinite alternate;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    color: #FFD700;
+}
+
+/* Timer */
+#tempoRestante {
+    font-size: 1.2rem;
+    color: #FFD700;
+    margin-bottom: 15px;
+    text-align: center;
+    z-index: 2;
+    pointer-events: auto;
+}
+
+#timer {
+    font-size: 1.5rem;
+    margin-top: 40px;
+    color: #FFD700;
+    margin-bottom: 50px;
+    text-align: center;
+    z-index: 2;
+    pointer-events: auto;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    font-weight: bold;
+}
+
+/* Progresso */
+.container__progresso {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    margin: 20px 0;
+    height: 10px;
+    overflow: hidden;
+}
+
+.container__progresso-barra {
+    background: #00C851;
+    height: 100%;
+    width: 0;
+    transition: width 0.3s ease;
+}
+
+/* Container do placar e tempo */
+.placar-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    background: rgba(0, 0, 0, 0.1);
+    padding: 10px 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    border: 2px solid #1875E8;
+    z-index: 2;
+}
+
+/* Estilo do placar e tempo */
+.placar-container span {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #FFD700;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 5px;
+}
+
+.placar-container span:last-child {
+    margin-bottom: 0; /* Remove o espaço do último elemento */
+}
+
+/* Animação moderna */
+.placar-container span {
+    transition: transform 0.2s ease-in-out, color 0.3s ease;
+}
+
+.placar-container span:hover {
+    transform: scale(1.1);
+    color: #00C851; /* Destaque ao passar o mouse */
+}
+
+/* Responsividade */
+@media screen and (max-width: 768px) {
+    .placar-container {
+        top: 10px;
+        right: 10px;
+        padding: 8px 15px;
+    }
+
+    .placar-container span {
+        font-size: 0.9rem;
+    }
+}
+
+
+/* Responsividade */
+@media screen and (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    .texto__paragrafo {
+        font-size: 1rem;
+    }
+
+    .opcao {
+        font-size: 1rem;
+        padding: 12px;
+    }
+}
+
+@keyframes pulse {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.2);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .texto__paragrafo {
+        font-size: 0.9rem;
+    }
+
+    .opcao {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+}

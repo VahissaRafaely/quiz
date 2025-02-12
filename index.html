@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jogo de Perguntas e Respostas</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+  <div class="placar-container">
+    <span>Nível: <span id="level">1</span></span>
+    <span>Placar: <span id="score">0</span></span>
+  </div>
+  <div class="conteudo">
+    <h1 id="pergunta">Pergunta aparecerá aqui</h1>
+    <div id="answers" class="opcoes"></div>
+    <div id="status"></div> <!-- Removido ID duplicado -->
+    <div id="timer">Tempo: 15s</div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
